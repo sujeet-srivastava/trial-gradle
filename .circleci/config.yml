@@ -11,11 +11,12 @@ executors:
 jobs:
   gradle_build:
     executor:gradle-executor
-    - steps:
+    steps:
       - checkout
       - run:
           name: Build Scala code with Gradle
           command: |
+            echo "going to build with gradle"
             gradle wrapper
             gradle build
               
