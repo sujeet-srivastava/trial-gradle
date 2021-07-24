@@ -9,9 +9,9 @@ executors:
       - image: 'cimg/openjdk:16.0.1'
 
 jobs:
-  - gradle_build:
-      executor:gradle-executor
-  - steps:
+  gradle_build:
+    executor:gradle-executor
+    - steps:
       - checkout
       - run:
           name: Build Scala code with Gradle
