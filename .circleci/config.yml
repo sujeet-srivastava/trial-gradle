@@ -9,7 +9,7 @@ executors:
       - image: 'cimg/openjdk:16.0.1'
 
 jobs:
-  - gradle/build:
+  - gradle_build:
       executor:gradle-executor
   - steps:
       - checkout
@@ -23,4 +23,4 @@ workflows:
   version: 1
   dev:
     jobs:
-      - gradle/build 
+      - gradle_build 
