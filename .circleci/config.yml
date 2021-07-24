@@ -19,7 +19,8 @@ jobs:
             echo "going to build with gradle"
             gradle -v
             gradle tasks
-              
+            gradle build
+            find .  
 workflows:
   version: 1
   dev:
