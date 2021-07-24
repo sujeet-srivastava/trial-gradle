@@ -17,8 +17,8 @@ jobs:
           name: Build Scala code with Gradle
           command: |
             echo "going to build with gradle"
-            gradle wrapper
-            gradle build
+            gradle -v
+            gradle tasks
               
 workflows:
   version: 1
