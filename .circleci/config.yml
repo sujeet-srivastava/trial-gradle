@@ -8,19 +8,19 @@ executors:
     docker:
       - image: 'cimg/openjdk:16.0.1'
 
+jobs:
+  - gradle/build:
+      executor:gradle-executor
+  - steps:
+      - checkout
+      - run:
+          name: Build Scala code with Gradle
+          command: |
+            gradle wrapper
+            gradle build
+              
 workflows:
-  gradle_test:
+  version: 1
+  dev:
     jobs:
-      - gradle/build:
-          executor:gradle-executor
-      - steps:
-          - checkout
-          - run:
-              name: Build Scala code with Gradle
-              command: |
-                gradle wrapper
-                gradle build
-          - store_artifacts: build/reports/
-          - store_test_results:
-                path: test_results
-               
+      - gradle/build 
