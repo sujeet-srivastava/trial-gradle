@@ -1,0 +1,26 @@
+version: 2.1
+
+orbs:
+  gradle: circleci/gradle@2.2.0
+
+executors:
+  gradle-executor:
+    docker:
+      - image: 'cimg/openjdk:16.0.1'
+
+workflows:
+  gradle_test:
+    jobs:
+      - gradle/build:
+          executor:gradle-executor
+          steps:
+            - checkout
+            - run:
+                name: Build Scala code with Gradle
+                command: |
+                  gradle wrapper
+                  gradle build
+            - store_artifacts: build/reports/
+            - store_test_results:
+                path: test_results
+               
