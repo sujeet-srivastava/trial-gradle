@@ -10,7 +10,7 @@ executors:
 
 jobs:
   gradle_build:
-    executor:gradle-executor
+    executor: gradle-executor
     steps:
       - checkout
       - run:
